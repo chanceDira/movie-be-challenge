@@ -83,13 +83,15 @@ app.delete('/movies/:id', async(req, res) =>{
     }
 })
 
+const port = process.env.PORT || 4000
+
 mongoose.set("strictQuery", false)
 mongoose.
 connect(process.env.MONGODB_URI)
 .then(() => {
     console.log('connected to MongoDB')
-    app.listen(3000, ()=> {
-        console.log(`Movie app is running on port 3000`)
+    app.listen(port, ()=> {
+        console.log(`Movie app is running on port ${port}`)
     });
 }).catch((error) => {
     console.log(error)
