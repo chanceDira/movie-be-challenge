@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const movieRoutes = require('./routes/movieRoutes');
+const cors = require('cors'); 
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerOptions = require('./swaggerOptions');
@@ -12,6 +13,8 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors()); 
 
 app.use('/api', movieRoutes);
 
