@@ -8,9 +8,6 @@ const swaggerUI = require('swagger-ui-express');
 const swaggerOptions = require('./swaggerOptions');
 require('dotenv').config();
 
-const connectionString = process.env.MONGODB_URI;
-const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
-
 const app = express();
 
 app.use(express.json());
@@ -22,7 +19,7 @@ app.use('/api', movieRoutes);
 app.use("/api", authRoutes);
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, { customCssUrl: CSS_URL }));
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 
 const port = process.env.PORT || 4000;
