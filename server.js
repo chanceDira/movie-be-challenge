@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors()); 
 
 app.use('/api', movieRoutes);
-app.use("/auth", authRoutes);
+app.use("/api", authRoutes);
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, { customCssUrl: CSS_URL }));
