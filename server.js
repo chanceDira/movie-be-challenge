@@ -4,7 +4,7 @@ const movieRoutes = require('./routes/movieRoutes');
 const authRoutes = require("./routes/authRoutes");
 const cors = require('cors'); 
 const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+const swaggerUI = require('swagger-ui-express');
 const swaggerOptions = require('./swaggerOptions');
 require('dotenv').config();
 
@@ -22,7 +22,7 @@ app.use('/api', movieRoutes);
 app.use("/auth", authRoutes);
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCssUrl: CSS_URL }));
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, { customCssUrl: CSS_URL }));
 
 
 const port = process.env.PORT || 4000;
