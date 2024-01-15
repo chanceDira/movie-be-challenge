@@ -2,6 +2,7 @@
 
 ## Introduction
 Movie App Backend.
+![2024-01-15_22-46](https://github.com/chanceDira/movie-be-challenge/assets/67952319/a9f61054-6138-476a-90db-713f49df5f10)
 
 
 ## How to run
