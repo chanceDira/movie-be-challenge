@@ -1,23 +1,34 @@
 const swaggerOptions = {
     swaggerDefinition: {
-        info: {
-            title: 'Movie API',
-            version: '1.0.0',
-            description: 'API documentation for the Movie API',
-        },
-        basePath: '/api',
-    },
+		openapi: '3.0.0',
+		info: {
+			title: 'Movie App',
+			version: '1.0.0',
+			description:
+				'Movie App Backend.',
+		},
+		servers: [
+			{
+				url: `http://localhost:5000`,
+			},
+		],
+		components: {
+			securitySchemes: {
+				bearerAuth: {
+					type: 'http',
+					scheme: 'bearer',
+					in: 'header',
+					bearerFormat: 'JWT',
+				},
+			},
+		},
+		security: [
+			{
+				bearerAuth: [],
+			},
+		],
+	},
     apis: ['./routes/*.js', './controllers/*.js'],
-    definitions: {
-        Movie: {
-            type: 'object',
-            properties: {
-                title: { type: 'string', example: 'Titanic part 5' },
-                year: { type: 'number', example: 2010 },
-                image: { type: 'string', example: 'image url' },
-            },
-        },
-    },
 };
 
 module.exports = swaggerOptions;
