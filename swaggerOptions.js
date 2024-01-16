@@ -1,4 +1,4 @@
-const baseUrl = process.env.BASE_API;
+const baseUrl = process.env.BASE_API || 'http://localhost:3000'; 
 const swaggerOptions = {
     swaggerDefinition: {
 		openapi: '3.0.0',
@@ -10,7 +10,8 @@ const swaggerOptions = {
 		},
 		servers: [
 			{
-				url: baseUrl || `http://localhost:3000`,
+				// url: 'https://dark-jade-duck-robe.cyclic.app/api',
+                url: `${baseUrl}/api`,
 			},
 		],
 		components: {
