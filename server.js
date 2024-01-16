@@ -21,7 +21,6 @@ app.use("/api", authRoutes);
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
-
 const port = process.env.PORT || 4000;
 
 mongoose.set('strictQuery', false);
