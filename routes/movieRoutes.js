@@ -40,6 +40,7 @@ router.get('/movies', movieController.getAllMovies);
  *         description: A single movie
  */
 router.get('/movies/:id', movieController.getMovieById);
+
 /**
  * @swagger
  * /movies:
