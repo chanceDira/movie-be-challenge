@@ -6,6 +6,8 @@ const cors = require('cors');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const swaggerOptions = require('./swaggerOptions');
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css"
+
 require('dotenv').config();
 
 const app = express();
@@ -19,7 +21,7 @@ app.use('/api', movieRoutes);
 app.use("/api", authRoutes);
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
-app.use('/api/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+app.use('/api/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, { customCssUrl: CSS_URL }));
 
 
 const port = process.env.PORT || 4000;
