@@ -1,3 +1,4 @@
+const baseUrl = process.env.BASE_API;
 const swaggerOptions = {
     swaggerDefinition: {
 		openapi: '3.0.0',
@@ -9,7 +10,7 @@ const swaggerOptions = {
 		},
 		servers: [
 			{
-				url: `http://localhost:5000`,
+				url: baseUrl || `http://localhost:3000`,
 			},
 		],
 		components: {
